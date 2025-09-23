@@ -20,6 +20,9 @@ endfunction
 
 " Necessary for RCreateMaps():
 exe "source " . substitute(expand("<sfile>:h:h"), ' ', '\ ', 'g') . "/R/common_global.vim"
+if exists("g:has_Rnvim")
+    finish
+endif
 
 call RCreateMaps('n',   'RQuartoRender',  'qr', ':call RQuarto("render")')
 call RCreateMaps('n',   'RQuartoPreview',  'qp', ':call RQuarto("preview")')

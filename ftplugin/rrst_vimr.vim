@@ -5,6 +5,9 @@ endif
 
 " Define some buffer variables common to R, Rnoweb, Rmd, Rrst, Rhelp and rdoc:
 exe "source " . substitute(expand("<sfile>:h:h"), ' ', '\ ', 'g') . "/R/common_buffer.vim"
+if exists("g:has_Rnvim")
+    finish
+endif
 
 function! RrstIsInRCode(vrb)
     let chunkline = search("^\\.\\. {r", "bncW")
